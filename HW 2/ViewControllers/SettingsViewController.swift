@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class SettingsViewController: UIViewController {
     
     @IBOutlet weak var colorView: UIView!
@@ -19,6 +20,10 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var redSlider: UISlider!
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
+    
+    @IBOutlet var redTF: UITextField!
+    @IBOutlet var greenTF: UITextField!
+    @IBOutlet var blueTF: UITextField!
     
     @IBOutlet var doneButton: UIButton!
     
@@ -47,10 +52,13 @@ class SettingsViewController: UIViewController {
         switch sender {
         case redSlider:
             redLabel.text = string(from: redSlider)
+            redTF.text = string(from: redSlider)
         case greenSlider:
             greenLabel.text = string(from: greenSlider)
+            greenTF.text = string(from: greenSlider)
         default:
             blueLabel.text = string(from: blueSlider)
+            blueTF.text = string(from: blueSlider)
         }
     }
     
@@ -86,4 +94,8 @@ class SettingsViewController: UIViewController {
     }
 }
 
+extension SettingsViewController: UITextFieldDelegate {
+    func passValues () {
+    }
+}
 
